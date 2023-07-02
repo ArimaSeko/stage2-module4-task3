@@ -11,9 +11,7 @@ public class MaxPriceFilteringStrategy implements FilteringStrategy {
 
     @Override
     public boolean filter(Product product) {
-        if(product.getPrice()==maxPrice){
-        return true;
-    }else return false;
+        return product.getPrice() <= maxPrice;
     }
 
     // Write your code here!
