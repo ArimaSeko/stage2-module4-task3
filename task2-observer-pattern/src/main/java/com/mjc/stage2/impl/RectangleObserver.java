@@ -13,13 +13,12 @@ public class RectangleObserver implements  Observer {
     @Override
     public void handleEvent(RectangleEvent event){
         Rectangle rectangle = event.getSource();
-        RectangleValues rectangleValues = RectangleWarehouse.getInstance().get(rectangle.getId());
-        if (rectangleValues != null){
-            rectangleValues.setPerimeter(2 * (rectangle.getSideA() + rectangle.getSideB()));
-            rectangleValues.setSquare(rectangle.getSideA() * rectangle.getSideB());
+        if (RectangleWarehouse.getInstance().get(rectangle.getId()) != null){
+            RectangleWarehouse.getInstance().get(rectangle.getId()).setPerimeter(2 * (rectangle.getSideA() + rectangle.getSideB()));
+            RectangleWarehouse.getInstance().get(rectangle.getId()).setSquare(rectangle.getSideA() * rectangle.getSideB());
         }
 
-        RectangleWarehouse.getInstance().put(rectangle.getId(), rectangleValues);
+        //RectangleWarehouse.getInstance().put(rectangle.getId(), rectangleValues);
     }
     // Write your code here!
 }
